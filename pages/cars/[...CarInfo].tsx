@@ -1,58 +1,19 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { useState, useEffect } from 'react';
-import { Loading } from '../../components/Loading/LoadingComponent';
-import { FiArrowLeft,FiArrowRight } from "react-icons/fi";
-import { BackButton, BackButtonAux, 
-    BookContainer, BottomContainer, 
-    ButtonBook, ContainerNotCars, 
-    DetailContainer, DetailTopContainer, 
-    ImageContainer, LogoCar, MidContainer, 
-    NotCars, NumberColorContainer, TextContainer, 
-    TextPrice, TextTitleCar 
-} from './styles'
-const CarInfo: React.FC = (props)=>{
-    const {brand_img,brand,model,price,options}= props.car[0];
- 
-    const [logoIsLoaded, setLogoIsLoaded] = useState(false);
-    const [currentData,setCurrentData]= useState<any[]>(options)
-    const [currentIndex,setCurrentIndex] = useState(0);
+import DetailCar from '../../components/DetailCar/DetailCar';
+import { CarDetail } from '../../Utils/interfaces';
 
-    console.log(currentData)
+const CarInfo: React.FC = (props)=>{
+    
+    const [data,setData] = useState<CarDetail>(props.car[0])
+    useEffect(()=>{
+        setData(props.car[0])
+    },[props.car[0]])
+    
+
+    
     return(
-        <DetailContainer>
-                <DetailTopContainer>
-                <LogoCar >
-                    <img style= {{width: '100%',}} src = {brand_img} onLoad={()=>setLogoIsLoaded(true)}></img>
-                </LogoCar>
-                <TextContainer>
-                    <TextTitleCar>{brand} {model}</TextTitleCar>
-                    <TextPrice>$ {price}/day</TextPrice>
-                </TextContainer>
-                </DetailTopContainer>
-                <MidContainer>
-                    <BackButton> <FiArrowLeft className = "arrow"size = {15}/>Back to catalog</BackButton>
-                    <ImageContainer>
-                        
-                        <img src = {currentData[currentIndex].image} ></img>
-                        <NumberColorContainer>
-                            <TextTitleCar>0{currentData[currentIndex].id_option}</TextTitleCar>
-                            <TextPrice>{currentData[currentIndex].color}</TextPrice>
-                        </NumberColorContainer>
-                    </ImageContainer>
-                    
-                </MidContainer>
-                <BookContainer>
-                    <ButtonBook>Book Now <FiArrowRight className = "arrowRight" size={15}/> 
-                    </ButtonBook>
-                    
-                </BookContainer>
-                {}
-                <BottomContainer>
-                
-                </BottomContainer>
-         
-            
-        </DetailContainer>
+        <DetailCar props={data}/>
     )
 }
 
