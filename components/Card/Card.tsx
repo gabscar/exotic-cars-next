@@ -12,11 +12,11 @@ interface card{
 const Card : React.FC<card> = ({data})=>{
    
    
-    const {brand,price,image_card,model} =data;
+    const {brand,price,image_card,model,id} =data;
     let modelAux =model;
    let modelPath = modelAux.split(' ').join('-');
    console.log(model)
-    const linkPath = `/posts/${brand}/${modelPath}`;
+    const linkPath = `/cars/${id}/${brand}/${modelPath}`;
     return(
         <Link href={linkPath}>
             <CardDiv >

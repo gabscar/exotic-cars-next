@@ -148,6 +148,9 @@ export const LocationInput = styled.input`
     background: #F3F1FC 0% 0% no-repeat padding-box;
     border-radius: 20px;
     padding: 5px;
+    &:focus{
+        border: none;
+    }
     @media (max-width:900px){
         width: 60vw;
 
@@ -158,7 +161,7 @@ export const LocationInput = styled.input`
 `
 
 export const DataContainer = styled.div`
-    width: 17.5rem;
+    width: 18.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -285,7 +288,7 @@ export const DateInput = styled(DatePicker)`
 
 
 export const LayoutMain = styled.div`
-    margin: 3rem auto;
-    width: 90%;
-    max-width: 40rem;
+    
+    
+    
 `
