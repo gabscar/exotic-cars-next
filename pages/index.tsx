@@ -16,7 +16,7 @@ const Home: NextPage = () => {
 }
   return (
     <div>
-      <div style={{display:'flex', justifyContent:'center', }}>
+      <div style={{display:'flex', justifyContent:'center'}}>
             <CardContainer>
                 {RenderCars()}
             </CardContainer>

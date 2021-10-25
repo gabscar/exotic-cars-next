@@ -73,6 +73,7 @@ export const CarFilterContainer = styled.div`
     height: 2.25rem;
     align-items: center;
     display: flex;
+    justify-content: space-around;
     @media (max-width:900px){
         flex-direction: column;
         height: 70px;
@@ -127,11 +128,12 @@ export const LoginBtn = styled.button`
 
 export const LocationContainer = styled.div`
     margin-left: 0.625rem;
-    width: 10rem;
+    width: 12rem;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10rem;
+   
     @media (max-width:900px){
         width: 100vw;
         height: 1.875rem;
@@ -140,9 +142,9 @@ export const LocationContainer = styled.div`
 `
 export const LocationInput = styled.input`
     width: 9.375rem;
-    margin-left: 3px;
-    border-color: #0000001A;
-    height: 20px;
+    
+    border-color: transparent;//#0000001A;
+    height: 30px;
     background: #F3F1FC 0% 0% no-repeat padding-box;
     border-radius: 20px;
     padding: 5px;
@@ -160,7 +162,7 @@ export const DataContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 3.938rem;
+    margin-left: 3.738rem;
     @media (max-width:500px){
         margin-left: 0px;
         padding-bottom: 2px;
@@ -178,7 +180,8 @@ export const SearchBtn = styled.button`
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     cursor:pointer;
     &:hover{
         background-color: #00000014;

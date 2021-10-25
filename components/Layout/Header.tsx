@@ -33,7 +33,8 @@ const Header : React.FC = ()=>{
             
             <CarFilterContainer>
                 <LocationContainer>
-                    <ImLocation2 size={20} color="#C4C4C4"/>
+
+                    <ImLocation2 className="location-icon"size={20} color="#C4C4C4"/>
                     <LocationInput/>
                     
                         
