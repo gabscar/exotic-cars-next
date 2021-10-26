@@ -9,19 +9,48 @@ import { BackButton, BackButtonAux,
     NotCars, NumberColorContainer, TextContainer, 
     TextPrice, TextTitleCar 
 } from './styles'
-import { CarDetail } from '../../Utils/interfaces';
+import { CarDetail, options } from '../../Utils/interfaces';
+import Carrousel from '../Carrousel/Carrousel';
 
 interface Detail {
     props:CarDetail
 }
 const DetailCar: React.FC <Detail>= ({props})=>{
     const {brand_img,brand,model,price,options}= props;
-    console.log(props)
+    
     const [logoIsLoaded, setLogoIsLoaded] = useState(false);
-    const [currentData,setCurrentData]= useState<any[]>(options)
+    const [currentData,setCurrentData]= useState<options[]>(options.slice(0,3))
     const [currentIndex,setCurrentIndex] = useState(0);
 
+    useEffect(() => {
+        ChangeIndex();
+        if(options.length <3)
+            setCurrentIndex(0)
+        else
+            setCurrentIndex(1);
+    }, [currentIndex]);
     
+    function handleSelectActionModal(index: number) {
+        if (index >currentIndex) {
+            setCurrentIndex(index);
+        }
+        if (index <currentIndex) {
+            setCurrentIndex(currentIndex+1);
+        }
+    }
+    function ChangeIndex(){
+        
+        if (currentIndex < 1) {
+            let aux:options[] = currentData;
+            let shift:options = aux.shift();
+            setCurrentData([...currentData,shift]);            
+        }else if (currentIndex > 1) {
+            let aux:options[] = currentData;
+            let pop:options = aux.pop();
+            setCurrentData([pop,...currentData]);
+        }
+        
+    }
     return(
         <DetailContainer>
                 <DetailTopContainer>
@@ -52,7 +81,11 @@ const DetailCar: React.FC <Detail>= ({props})=>{
                 </BookContainer>
                 {}
                 <BottomContainer>
-                
+                    <Carrousel prevSlide={handleSelectActionModal} 
+                            nextSlide={handleSelectActionModal} 
+                            currentData={currentData} 
+                            currentIndex={currentIndex}
+                            />
                 </BottomContainer>
          
             

@@ -19,3 +19,14 @@ export interface CarDetail{
     options: []
     
 }
+export interface options{
+    id_option: number,
+    color: string,
+    image: string
+}
+export interface carrousel{
+    currentData:options[],
+    currentIndex:number,
+    nextSlide: (index:number)=>void,
+    prevSlide: (index:number)=>void,
+}

@@ -239,6 +239,7 @@ export const BottomContainer = styled.div`
      margin: 0 auto;
      min-height: 400px;
     max-width: 100vw;
+    height: 220px;
     justify-content: center;
     align-items: center;
      @media (max-width:700px){

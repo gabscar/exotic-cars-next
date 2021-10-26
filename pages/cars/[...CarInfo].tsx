@@ -2,8 +2,10 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { useState, useEffect } from 'react';
 import DetailCar from '../../components/DetailCar/DetailCar';
 import { CarDetail } from '../../Utils/interfaces';
-
-const CarInfo: React.FC = (props)=>{
+interface staticProps{
+  car: CarDetail[]
+}
+const CarInfo: React.FC <staticProps>= (props:staticProps)=>{
     
     const [data,setData] = useState<CarDetail>(props.car[0])
     useEffect(()=>{
