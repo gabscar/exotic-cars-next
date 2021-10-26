@@ -26,7 +26,8 @@ export const CarrouselImagesContainer = styled.div`
 export const CarrouselContainer = styled.div`
     
     display: flex;
-    justify-content: space-around;
+    
+    justify-content: space-evenly;
     align-items: center;
     overflow: hidden;
     height: 400px;
@@ -110,7 +111,7 @@ export const CarrouselInactiveItem = styled.div`
     align-items: center;
     user-select: none;
     
-    margin: 0 180px 0 200px;
+    margin: 0 200px 0 220px;
     div{
         display: flex;
         justify-content: center;

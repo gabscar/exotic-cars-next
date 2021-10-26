@@ -228,7 +228,7 @@ export const NumberColorContainer = styled.div`
 
 export const BottomContainer = styled.div`
      width: 90%;
-     margin: 0 auto;
+     
      min-height: 400px;
     max-width: 100vw;
     height: 220px;
