@@ -9,6 +9,7 @@ export default createGlobalStyle`
       padding: 0px;
       box-sizing: border-box;
       max-width: 100vw;
+      
     
     }
     #root {
@@ -20,7 +21,7 @@ export default createGlobalStyle`
     body {
      
       font-family: 'Segoe UI';
-     
+      width: 100vw;
       
     }
     a {

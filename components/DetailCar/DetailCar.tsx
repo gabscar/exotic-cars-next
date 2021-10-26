@@ -12,16 +12,20 @@ import { BackButton, BackButtonAux,
 import { CarDetail, options } from '../../Utils/interfaces';
 import Carrousel from '../Carrousel/Carrousel';
 import Image from 'next/image'
+import {useRouter} from 'next/router'
+import { SyntheticEvent } from 'hoist-non-react-statics/node_modules/@types/react';
+import {LoadingDiv} from '../Loading/LoadingDIv'
 interface Detail {
     props:CarDetail
 }
 const DetailCar: React.FC <Detail>= ({props})=>{
     const {brand_img,brand,model,price,options}= props;
-    
+    const [mainIsLoaded, setMainIsLoaded] = useState(false);
     const [logoIsLoaded, setLogoIsLoaded] = useState(false);
     const [currentData,setCurrentData]= useState<options[]>(options.slice(0,3))
     const [currentIndex,setCurrentIndex] = useState(0);
-
+    const [width,setWidth] = useState(window.innerWidth)
+    const router = useRouter()
     useEffect(() => {
         ChangeIndex();
         if(options.length <3)
@@ -29,6 +33,16 @@ const DetailCar: React.FC <Detail>= ({props})=>{
         else
             setCurrentIndex(1);
     }, [currentIndex]);
+
+    useEffect(()=>{
+        function handleResize() {
+            setWidth(window.innerWidth)
+          }
+      
+          window.addEventListener('resize', handleResize);
+          return () => window.removeEventListener('resize', handleResize);
+    },[width])  
+    console.log(width)
     
     function handleSelectActionModal(index: number) {
         if (index >currentIndex) {
@@ -51,22 +65,30 @@ const DetailCar: React.FC <Detail>= ({props})=>{
         }
         
     }
+    function goBackHandler(evt:SyntheticEvent){
+        evt.preventDefault();
+        router.back();
+    }
     return(
         <DetailContainer>
                 <DetailTopContainer>
-                <LogoCar >
-                    <Image src = {brand_img} width={91} height={123} onLoad={()=>setLogoIsLoaded(true)}/>
-                </LogoCar>
-                <TextContainer>
-                    <TextTitleCar>{brand} {model}</TextTitleCar>
-                    <TextPrice>$ {price}/day</TextPrice>
-                </TextContainer>
+                    <LogoCar >
+                        {logoIsLoaded ? null : (
+                            <LoadingDiv/>
+                        )}
+                        <Image src = {brand_img} width={91} height={123} onLoadingComplete={()=>setLogoIsLoaded(true)}/>
+                    </LogoCar>
+                    <TextContainer>
+                        <TextTitleCar>{brand} {model}</TextTitleCar>
+                        <TextPrice>$ {price}/day</TextPrice>
+                    </TextContainer>
                 </DetailTopContainer>
                 <MidContainer>
-                    <BackButton> <FiArrowLeft className = "arrow"size = {15}/>Back to catalog</BackButton>
+                    
+                    <BackButton onClick={goBackHandler}> <FiArrowLeft className = "arrow"size = {15}/>Back to catalog</BackButton>
                     <ImageContainer>
-                        
-                        <Image src = {currentData[currentIndex].image} width={783} height={408}/>
+                        {mainIsLoaded? null : <LoadingDiv/>}
+                        <Image src = {currentData[currentIndex].image} width={783} height={408} onLoadingComplete={()=>setMainIsLoaded(true)}/>
                         <NumberColorContainer>
                             <TextTitleCar>0{currentData[currentIndex].id_option}</TextTitleCar>
                             <TextPrice>{currentData[currentIndex].color}</TextPrice>

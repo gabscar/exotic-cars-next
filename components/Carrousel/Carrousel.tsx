@@ -11,8 +11,8 @@ const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
     
     return(
         <CarrouselContainer>
-            { currentData.length>1?<BsFillArrowLeftCircleFill className='arrow' onClick={()=>prevSlide(currentIndex-1)} />:
-                <BsFillArrowLeftCircleFill className='arrow' onClick={()=>prevSlide(currentIndex)}/>
+            { currentData.length>1?<BsFillArrowLeftCircleFill className='arrow-left' onClick={()=>prevSlide(currentIndex-1)} />:
+                <BsFillArrowLeftCircleFill className='arrow-left' onClick={()=>prevSlide(currentIndex)}/>
             }
             <CarrouselImagesContainer>
             {
@@ -46,8 +46,8 @@ const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
                 })
             }
             </CarrouselImagesContainer>
-             {currentData.length>1?<BsFillArrowRightCircleFill className='arrow' onClick={()=>nextSlide(currentIndex+1)} />:
-                <BsFillArrowRightCircleFill className='arrow' onClick={()=>nextSlide(currentIndex)} />
+             {currentData.length>1?<BsFillArrowRightCircleFill className='arrow-right' onClick={()=>nextSlide(currentIndex+1)} />:
+                <BsFillArrowRightCircleFill className='arrow-right' onClick={()=>nextSlide(currentIndex)} />
             }
         </CarrouselContainer>
     )

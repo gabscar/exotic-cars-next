@@ -17,6 +17,10 @@ export const CarrouselImagesContainer = styled.div`
     justify-content: space-around;
     margin: 0% 0% 0% 0%;
     max-width: 500px;
+    @media (max-width:700px){
+        width: 100vw;
+        
+    }
 `
 
 export const CarrouselContainer = styled.div`
@@ -28,13 +32,40 @@ export const CarrouselContainer = styled.div`
     height: 400px;
     transform: scale(1);
     transition-delay: 1s;
-    .arrow {
+    width: 100vw;
+    
+    .arrow-right {
         height: 50px;
         width: 50px;
         color: #000;
         cursor: pointer;
         user-select: none;
     }   
+    .arrow-left {
+        height: 50px;
+        width: 50px;
+        color: #000;
+        cursor: pointer;
+        user-select: none;
+    }   
+
+    @media (max-width:600px){
+        max-width: 100vw;
+        .arrow-left {
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            left: 20%;
+            
+            
+        }
+        .arrow-right{
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            right: 18%;
+        }
+    }
 `
 
 export const CarrouselActiveItem = styled.div`
@@ -60,6 +91,14 @@ export const CarrouselActiveItem = styled.div`
             animation: ${ css`0.5s ${SlideOutRigthAnimation}`};
             
     }
+    @media (max-width:700px){
+        
+        div{
+            width: 250px;
+            
+            
+        }
+    }
 
 
 `
@@ -70,7 +109,7 @@ export const CarrouselInactiveItem = styled.div`
     justify-content: center;
     align-items: center;
     user-select: none;
-    z-index: 0;
+    
     margin: 0 180px 0 200px;
     div{
         display: flex;
@@ -82,6 +121,13 @@ export const CarrouselInactiveItem = styled.div`
     div .img{
         justify-self: center;
         transform: translateX(3%);
+    }
+    @media (max-width:700px){
+        div{
+            width: 200px;
+            margin: 0 0 0 0;
+            
+        }
     }
 `
 

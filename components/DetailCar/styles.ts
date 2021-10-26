@@ -23,26 +23,26 @@ export const DetailTopContainer = styled.div`
 `
 
 export const LogoCar = styled.div`
-    max-width:91px;
-    max-height: 123px;
+    width:91px;
+    height: 123px;
     justify-content: center;
     align-items: center;
     @media (max-width:1000px){
-       
-            width: 60px;
-            height: 70%;
+       width: 60px;
+       height: 100px;
+            
         
     }
     @media (max-width:900px){
        
-       width: 50px;
-       height: 70%;
+    }
    
-}
+
 `
 export const TextContainer = styled.div`
     flex-direction: column;
     padding-left: 39px;
+   
 `
 export const TextTitleCar = styled.h1`
     font: normal normal bold 50px Segoe UI;
