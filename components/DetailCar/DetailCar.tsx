@@ -11,7 +11,7 @@ import { BackButton, BackButtonAux,
 } from './styles'
 import { CarDetail, options } from '../../Utils/interfaces';
 import Carrousel from '../Carrousel/Carrousel';
-
+import Image from 'next/image'
 interface Detail {
     props:CarDetail
 }
@@ -55,7 +55,7 @@ const DetailCar: React.FC <Detail>= ({props})=>{
         <DetailContainer>
                 <DetailTopContainer>
                 <LogoCar >
-                    <img style= {{width: '100%',}} src = {brand_img} onLoad={()=>setLogoIsLoaded(true)}></img>
+                    <Image src = {brand_img} width={91} height={123} onLoad={()=>setLogoIsLoaded(true)}/>
                 </LogoCar>
                 <TextContainer>
                     <TextTitleCar>{brand} {model}</TextTitleCar>
@@ -66,7 +66,7 @@ const DetailCar: React.FC <Detail>= ({props})=>{
                     <BackButton> <FiArrowLeft className = "arrow"size = {15}/>Back to catalog</BackButton>
                     <ImageContainer>
                         
-                        <img src = {currentData[currentIndex].image} ></img>
+                        <Image src = {currentData[currentIndex].image} width={783} height={408}/>
                         <NumberColorContainer>
                             <TextTitleCar>0{currentData[currentIndex].id_option}</TextTitleCar>
                             <TextPrice>{currentData[currentIndex].color}</TextPrice>

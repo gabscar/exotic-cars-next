@@ -61,6 +61,7 @@ export const CarrouselActiveItem = styled.div`
             
     }
 
+
 `
 export const CarrouselInactiveItem = styled.div`
 

@@ -77,44 +77,25 @@ export const ImageContainer = styled.div`
     height: 400px;
     @media (max-width:1200px){
         width: 700px;
-        img {
-           
-        }
+        
     }
     @media (max-width:1000px){
         width: 800px;
-        img {
-            width: 720px;
-            height: 400px;
-        }
+        
     }
     @media (max-width:900px){
         
-        img {
-            align-self: center;
-            width: 600px;
-            height: 280px;
-        }
+        
     }
     @media (max-width:830px){
        
-        img {
-           
-        }
+        
     }
     @media (max-width:700px){
         width: 300px;
-        img{
-            
-            
-        }
     }
     @media (max-width:450px){
         width: 100vw;
-        img{
-            width: 400px;
-            height: 180px;
-        }
     }
    
 `
@@ -207,12 +188,14 @@ export const BackButton = styled.button`
 `
 
 export const NumberColorContainer = styled.div`
-    position: absolute;
-    right: 20%;
+    
+    padding-bottom: 300px;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-left: 12px;
+    min-width: 160px;
 
     @media (max-width:1500px){
         right: 9%;
