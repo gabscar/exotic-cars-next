@@ -53,8 +53,8 @@ export const TextTitleCar = styled.h1`
     @media (max-width:1000px){
         font-size: 35px;
     }
-    @media (max-width:900px){
-        font-size: 25px;
+    @media (max-width:740px){
+       font-size: 30px;
     }
 `
 export const TextPrice = styled.h2`
@@ -65,8 +65,8 @@ export const TextPrice = styled.h2`
     @media (max-width:1000px){
         font-size: 30px;
     }
-    @media (max-width:900px){
-        font-size: 20px;
+    @media (max-width:740px){
+       font-size: 25px;
     }
 `
 export const ImageContainer = styled.div`
@@ -77,24 +77,29 @@ export const ImageContainer = styled.div`
     height: 400px;
     @media (max-width:1200px){
         width: 700px;
-        
+        height: 300px;
     }
     @media (max-width:1000px){
-        width: 800px;
-        
+        width: 700px;
+        height: 300px;
     }
     @media (max-width:900px){
-        
-        
+        margin-left: 0;
+        width: 600px;
     }
-    @media (max-width:830px){
-       
-        
+    @media (max-width:780px){
+        width: 100vw;
+        height: 300px;
+        margin-left: 10rem;
     }
     @media (max-width:700px){
-        width: 300px;
+        margin-left: 5rem;
+    }
+    @media (max-width:600px){
+        margin-left: 2rem;
     }
     @media (max-width:450px){
+        margin-left: 0;
         width: 100vw;
     }
    
@@ -117,8 +122,9 @@ export const BackButton = styled.button`
     align-items: center;
     display: flex;
     cursor: pointer;
-    font: normal normal 300 18px Segoe UI;
+    font: normal normal 300 14px Segoe UI;
     background-color: transparent;
+    font-weight: bold;
     .arrow{
         margin-left: 4px;
         margin-right: 4px;
@@ -130,7 +136,7 @@ export const BackButton = styled.button`
     }
         margin-left: 2%;
         width: 170px;
-        font-size: 12px;
+        font-size: 13px;
     }
     @media (max-width:1260px){
         .arrow{
@@ -149,39 +155,40 @@ export const BackButton = styled.button`
             height: 12px;
             
         }
+        margin-right: 10px;
         width: 180px;
-        margin-left: 0;
+        margin-left: 5px;
         font-size: 12px;
-        font-weight: bold;
+        
     }
 
     @media (max-width:900px){
         .arrow{
-            width: 30px;
-            height: 30px;
+            width: 13px;
+            height: 13px;
             
         }
-        width: 60px;
-        font-size: 0px;
+        
+       
         border-radius: 60px;
     }
     @media (max-width:800px){
         .arrow{
-            width: 20px;
-            height: 20px;
+            width: 13px;
+            height: 13px;
         }
-        width: 60px;
+        
         margin-right: 0px;
-        font-size: 0px;
+        
     }
-    @media (max-width:750px){
+    @media (max-width:780px){
         .arrow{
-            width: 20px;
-            height: 20px;
+            width: 13px;
+            height: 13px;
         }
-        width: 20%;
+        
         border-radius: 60px;
-        font-size: 0px;
+        
         line-height: 0;
         display: none;
     }
@@ -198,20 +205,22 @@ export const NumberColorContainer = styled.div`
     min-width: 160px;
 
     @media (max-width:1500px){
-        right: 9%;
-    }
-    @media (max-width:1400px){
-        right: 7%;
-    }
-    @media (max-width:1200px){
-        right: 4%;
-    }
-    @media (max-width:1000px){
-        right: 10%;
         
     }
+    @media (max-width:1400px){
+        
+    }
+    @media (max-width:1200px){
+        position: absolute;
+        right: 4%;
+    }
     @media (max-width:900px){
-        right: 10%;
+        right: 0;
+    }
+    @media (max-width:600px){
+        position: absolute;
+        
+        right: 0;
     }
   
 

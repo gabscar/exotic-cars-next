@@ -23,7 +23,7 @@ export const HeaderContainer = styled.div`
     @media (max-width:950px){
         padding: 0% 1% 0% 1%;
     }
-
+    
     @media (max-width:450px){
         width: 100vw;
         padding: 0% 3% 0% 3%;
@@ -76,7 +76,7 @@ export const CarFilterContainer = styled.div`
     justify-content: space-around;
     @media (max-width:900px){
         flex-direction: column;
-        height: 70px;
+        height: 80px;
         justify-content: center;
         align-items: center;
         width: 90vw;
@@ -87,9 +87,7 @@ export const CarFilterContainer = styled.div`
         justify-content: center;
         align-items: center;
     }
-    @media (max-width:500px){
-
-    }
+    
 `
 
 export const ButtonsContainer = styled.div`
@@ -188,6 +186,9 @@ export const SearchBtn = styled.button`
     cursor:pointer;
     &:hover{
         background-color: #00000014;
+    }
+    @media (max-width:600px){
+        margin-bottom: 4px;
     }
 `
 
