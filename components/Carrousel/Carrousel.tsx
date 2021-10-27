@@ -25,7 +25,7 @@ const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
                                 <div  style={{cursor:'pointer'}}onClick={index>currentIndex?()=>nextSlide(currentIndex+1)
                                     :index<currentIndex?()=>prevSlide(currentIndex-1):()=>prevSlide(currentIndex)}>
                                     {optionIsLoaded? null : <LoadingDiv/>}
-                                    <Image className='img'  src={slide.image} width={450} height={250}onLoad={()=>setOptionIsLoaded(true)} />
+                                    <Image className='img'  src={slide.image} width={450} height={250}onLoadingComplete={()=>setOptionIsLoaded(true)} />
                                 </div>
                             </CarrouselActiveItem>
                             
@@ -38,7 +38,7 @@ const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
                                 <div  style={{cursor:'pointer'}}onClick={index>currentIndex?()=>nextSlide(currentIndex+1)
                                     :index<currentIndex?()=>prevSlide(currentIndex-1):()=>prevSlide(currentIndex)}>
                                     {optionIsLoaded? null : <LoadingDiv/>}
-                                    <Image className='img'  src={slide.image} width={330} height={180} onLoad={()=>setOptionIsLoaded(true)} />
+                                    <Image className='img'  src={slide.image} width={330} height={180} onLoadingComplete={()=>setOptionIsLoaded(true)} />
                                 </div>
                             </CarrouselInactiveItem>
                         )

@@ -69,12 +69,16 @@ export const TextPrice = styled.h2`
        font-size: 25px;
     }
 `
-export const ImageContainer = styled.div`
+export const ImageContainer = styled.div<{disp:boolean}>`
     display: flex;
     justify-content: center;
+    align-items: center;
     max-width: 100vw;
     width: 1000px;
     height: 400px;
+    Image{
+        display: ${({disp})=>(disp===true?'flex':"none")};
+    }
     @media (max-width:1200px){
         width: 700px;
         height: 300px;

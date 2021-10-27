@@ -15,6 +15,7 @@ import Image from 'next/image'
 import {useRouter} from 'next/router'
 import { SyntheticEvent } from 'hoist-non-react-statics/node_modules/@types/react';
 import {LoadingDiv} from '../Loading/LoadingDIv'
+import{Loading} from '../Loading/LoadingComponent'
 interface Detail {
     props:CarDetail
 }
@@ -24,6 +25,7 @@ const DetailCar: React.FC <Detail>= ({props})=>{
     const [logoIsLoaded, setLogoIsLoaded] = useState(false);
     const [currentData,setCurrentData]= useState<options[]>(options.slice(0,3))
     const [currentIndex,setCurrentIndex] = useState(0);
+
     const [width,setWidth] = useState(1720)
     const router = useRouter()
     useEffect(() => {
@@ -79,15 +81,16 @@ const DetailCar: React.FC <Detail>= ({props})=>{
             </ContainerNotCars>
         )
     }
+    
     return(
         options.length===0?NoVehiclesAvailable() : 
         <DetailContainer>
                 <DetailTopContainer>
                     <LogoCar >
                         {logoIsLoaded ? null : (
-                            <LoadingDiv/>
+                            <Loading/>
                         )}
-                        <Image src = {brand_img} width={91} height={123} onLoadingComplete={()=>setLogoIsLoaded(true)}/>
+                        {<Image src = {brand_img} width={91} height={123} onLoadingComplete={()=>setLogoIsLoaded(true)}/>}
                     </LogoCar>
                     <TextContainer>
                         <TextTitleCar>{brand} {model}</TextTitleCar>
@@ -97,9 +100,16 @@ const DetailCar: React.FC <Detail>= ({props})=>{
                 <MidContainer>
                     
                     <BackButton onClick={goBackHandler}> <FiArrowLeft className = "arrow"size = {15}/>Back to catalog</BackButton>
-                    <ImageContainer>
-                        {mainIsLoaded? null : <LoadingDiv/>}
-                        <Image src = {currentData[currentIndex].image} width={783} height={408} onLoadingComplete={()=>setMainIsLoaded(true)}/>
+                    
+                    <ImageContainer disp={mainIsLoaded}>
+                        
+                        {mainIsLoaded ? null : (
+                                <LoadingDiv/>
+                        )}
+                        <Image src = {currentData[currentIndex].image} width={783} height={408} 
+                        onLoadingComplete={()=>setMainIsLoaded(true)}
+                        />
+                        
                         <NumberColorContainer>
                             <TextTitleCar>0{currentData[currentIndex].id_option}</TextTitleCar>
                             <TextPrice>{currentData[currentIndex].color}</TextPrice>
