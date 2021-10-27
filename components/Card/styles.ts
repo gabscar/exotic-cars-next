@@ -12,6 +12,7 @@ export const CardDiv = styled.div`
     margin-bottom: 2rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    cursor:pointer;
 `
 
 export const TitleContainer = styled.div`
@@ -40,6 +41,8 @@ export const CarImageContainer = styled.div`
     justify-content: center;
     max-width: 300px;
     height: 200px;
+    position: relative;
+    z-index: 1;
 `
 
 export const CarImage = styled.img`

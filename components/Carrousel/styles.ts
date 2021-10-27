@@ -21,9 +21,10 @@ export const CarrouselImagesContainer = styled.div`
         width: 100vw;
         
     }
+    
 `
 
-export const CarrouselContainer = styled.div`
+export const CarrouselContainer = styled.div<{length:number}>`
     
     display: flex;
     
@@ -98,7 +99,7 @@ export const CarrouselContainer = styled.div`
             position: absolute;
             height: 30px;
             width: 30px;
-            left: 28%;
+            left: ${({length})=>(length>2?'28%':'8%')};
             top:40%;
             
             
@@ -108,17 +109,17 @@ export const CarrouselContainer = styled.div`
             top:40%;
             height: 30px;
             width: 30px;
-            right: 28%;
+            right: ${({length})=>(length>2?'28%':'8%')};
         }
     }
     @media (max-width:630px){
         .arrow-left {
             position: absolute;
-            left: 26%;
+            left: ${({length})=>(length>2?'26%':'6%')};
         }
         .arrow-right{
             position: absolute;
-            right: 26%;
+            right: ${({length})=>(length>2?'26%':'6%')};
         }
     }
 
@@ -127,7 +128,7 @@ export const CarrouselContainer = styled.div`
 export const CarrouselActiveItem = styled.div`
     opacity: 1;
     user-select: none;
-    height: 100%;  
+    height: 200px;  
     
     margin-top: 20px;
     margin-left: 20px;
@@ -139,11 +140,11 @@ export const CarrouselActiveItem = styled.div`
         width: 330px;
         border-radius: 30px;
         transform: translateY(-20%);
-           
+         z-index:0;  
     }
     div .img{
             transform: translateY(10%);
-           
+            z-index: 1;
             transition-duration: 1s;
             animation: ${ css`0.5s ${SlideOutRigthAnimation}`};
             

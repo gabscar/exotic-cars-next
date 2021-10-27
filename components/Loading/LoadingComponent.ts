@@ -25,3 +25,10 @@ export const Loading = styled.div`
         animation: ${css`${animation} 1.2s linear infinite`};
     }
 `
+export const LoadingContainer= styled.div`
+    position: absolute;
+    top:50%;
+    left: 50%;
+    display: flex;
+
+`

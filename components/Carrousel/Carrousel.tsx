@@ -8,12 +8,13 @@ const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
     const {nextSlide,prevSlide,currentData}=props;
     let{currentIndex}=props
     const [optionIsLoaded, setOptionIsLoaded] = useState(false);
+    const [optionMainIsLoaded, setOptionMainIsLoaded] = useState(false);
 
     const exibe = currentData.length===1;
     console.log(exibe)
     
     return(
-        <CarrouselContainer>
+        <CarrouselContainer length={currentData.length}>
             {currentData.length>1?<BsFillArrowLeftCircleFill className='arrow-left' onClick={()=>prevSlide(currentIndex-1)} />:!exibe?
                 <BsFillArrowLeftCircleFill className='arrow-left' onClick={()=>prevSlide(currentIndex)}/>:null
             }
@@ -27,8 +28,8 @@ const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
                             >
                                 <div  style={{cursor:'pointer'}}onClick={index>currentIndex?()=>nextSlide(currentIndex+1)
                                     :index<currentIndex?()=>prevSlide(currentIndex-1):()=>prevSlide(currentIndex)}>
-                                    {optionIsLoaded? null : <LoadingDiv/>}
-                                    <Image className='img'  src={slide.image} width={450} height={250}onLoadingComplete={()=>setOptionIsLoaded(true)} />
+                                    {optionMainIsLoaded? null : <LoadingDiv/>}
+                                    <Image className='img'  src={slide.image} width={450} height={250}onLoadingComplete={()=>setOptionMainIsLoaded(true)} />
                                 </div>
                             </CarrouselActiveItem>
                             

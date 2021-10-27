@@ -12,6 +12,8 @@ export const HeaderContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     max-width: 100vw;
+    position: relative;
+    z-index: 2;
     @media (max-width:900px){
         flex-direction: column;
         height: 9.563rem;
@@ -198,6 +200,7 @@ export const DateInput = styled(DatePicker)`
     .react-date-picker {
         display: inline-flex;
         position: relative;
+       
     }
     .react-date-picker,
     .react-date-picker *,
@@ -208,7 +211,7 @@ export const DateInput = styled(DatePicker)`
         box-sizing: border-box;
     }
     .react-date-picker--disabled {
-        background-color: #f0f0f0;
+        background-color: black;
         color: #6d6d6d;
     }
     .react-date-picker__wrapper {

@@ -1,10 +1,10 @@
-import { Loading } from "./LoadingComponent"
+import { Loading, LoadingContainer } from "./LoadingComponent"
 
 export const LoadingDiv: React.FC = ()=>{
 
     return(
-        <div style={{display:'flex', alignSelf:'center',justifySelf:'center'}}>
+        <LoadingContainer>
             <Loading/>
-        </div>
+        </LoadingContainer>
     )
 }
