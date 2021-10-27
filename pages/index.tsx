@@ -1,15 +1,31 @@
 import type { NextPage } from 'next'
+import { GetStaticProps} from 'next'
 import Card from "../components/Card/Card";
 import Image from 'next/image'
 import { CardContainer} from "./styles";
-import { Cars } from '../Utils/interfaces';
-const Home: NextPage = () => {
+import { CarDetail } from '../Utils/interfaces';
+import { getAllCars } from '../server/connections';
+
+interface lisCars{
+  cars:CarDetail[]
+}
+
+const Home: NextPage<lisCars> = (props:lisCars) => {
+
+  const {cars} = props;
+
+  console.log(cars)
   function RenderCars(){
-    
+
+      if(cars){
+        return(
+            cars.map((item:CarDetail)=>(
+            <Card data={item} key={item.id}/>
+        ))
+        )
+      }
       return(
-            DUMMY_DATA.map((item:Cars)=>(
-                <Card data={item} key={item.id}/>
-            ))
+           <p>Não existem carros disponíveis</p>
         )
     
     
@@ -29,6 +45,17 @@ const Home: NextPage = () => {
 export default Home
 
 
+export const getStaticProps: GetStaticProps = async () => {
+ 
+  const allCars = await getAllCars()
+  return {
+      props: {
+        cars: allCars,
+      },
+      revalidate: 500,
+    };
+
+}
 const DUMMY_DATA = [
   {
     "id": 1,

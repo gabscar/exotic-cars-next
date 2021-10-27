@@ -1,9 +1,11 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { useState, useEffect } from 'react';
 import DetailCar from '../../components/DetailCar/DetailCar';
+import { getAllCars } from '../../server/connections';
 import { CarDetail } from '../../Utils/interfaces';
 interface staticProps{
-  car: CarDetail[]
+  car: CarDetail[],
+
 }
 const CarInfo: React.FC <staticProps>= (props:staticProps)=>{
     
@@ -24,10 +26,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const {params} = context;
     const id = params.CarInfo[0];
     console.log(id)
-    const response = DUMMY_DATA.filter(item=>String(item.id)==id)
+    const response = await fetch(`http://10.0.0.103:4000/cars?id=${id}`);
+    if(!response.ok){
+      throw new Error("Someting wnt wrong");
+    }
+    const Data = await response.json();
+    console.log(Data)
+    const car = Data.filter((item:CarDetail)=>String(item.id)==id)
     return {
         props: {
-          car: response,
+          car: car,
         },
         revalidate: 500,
       };
@@ -36,7 +44,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export default CarInfo;
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = DUMMY_DATA.map(item=>{
+    const allVeicles = await getAllCars();
+    const paths = allVeicles.map(item=>{
         
         let replacedPath =  item.model.split(' ').join('-')  
         

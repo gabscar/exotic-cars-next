@@ -24,7 +24,7 @@ const DetailCar: React.FC <Detail>= ({props})=>{
     const [logoIsLoaded, setLogoIsLoaded] = useState(false);
     const [currentData,setCurrentData]= useState<options[]>(options.slice(0,3))
     const [currentIndex,setCurrentIndex] = useState(0);
-    const [width,setWidth] = useState(window.innerWidth)
+    const [width,setWidth] = useState(1720)
     const router = useRouter()
     useEffect(() => {
         ChangeIndex();
@@ -69,7 +69,18 @@ const DetailCar: React.FC <Detail>= ({props})=>{
         evt.preventDefault();
         router.back();
     }
+    function NoVehiclesAvailable(){
+        return(
+            <ContainerNotCars>
+                <NotCars>No vehicles available </NotCars>
+                <BackButtonAux onClick = {goBackHandler}>
+                    <FiArrowLeft className = "arrow" size = {15}/>Back to catalog    
+                </BackButtonAux>
+            </ContainerNotCars>
+        )
+    }
     return(
+        options.length===0?NoVehiclesAvailable() : 
         <DetailContainer>
                 <DetailTopContainer>
                     <LogoCar >
