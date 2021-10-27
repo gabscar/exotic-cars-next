@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
     height: 5.188rem;
     align-items: center;
     justify-content: space-between;
-  
+    max-width: 100vw;
     @media (max-width:900px){
         flex-direction: column;
         height: 9.563rem;

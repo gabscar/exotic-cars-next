@@ -5,14 +5,17 @@ import { useState } from "react";
 import { LoadingDiv } from "../Loading/LoadingDIv";
 import Image from 'next/image'
 const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
-    const {nextSlide,prevSlide,currentIndex,currentData}=props;
+    const {nextSlide,prevSlide,currentData}=props;
+    let{currentIndex}=props
     const [optionIsLoaded, setOptionIsLoaded] = useState(false);
 
+    const exibe = currentData.length===1;
+    console.log(exibe)
     
     return(
         <CarrouselContainer>
-            { currentData.length>1?<BsFillArrowLeftCircleFill className='arrow-left' onClick={()=>prevSlide(currentIndex-1)} />:
-                <BsFillArrowLeftCircleFill className='arrow-left' onClick={()=>prevSlide(currentIndex)}/>
+            {currentData.length>1?<BsFillArrowLeftCircleFill className='arrow-left' onClick={()=>prevSlide(currentIndex-1)} />:!exibe?
+                <BsFillArrowLeftCircleFill className='arrow-left' onClick={()=>prevSlide(currentIndex)}/>:null
             }
             <CarrouselImagesContainer>
             {
@@ -46,8 +49,8 @@ const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
                 })
             }
             </CarrouselImagesContainer>
-             {currentData.length>1?<BsFillArrowRightCircleFill className='arrow-right' onClick={()=>nextSlide(currentIndex+1)} />:
-                <BsFillArrowRightCircleFill className='arrow-right' onClick={()=>nextSlide(currentIndex)} />
+             {currentData.length>1?<BsFillArrowRightCircleFill className='arrow-right' onClick={()=>nextSlide(currentIndex+1)} />:!exibe?
+                <BsFillArrowRightCircleFill className='arrow-right' onClick={()=>nextSlide(currentIndex)} />:null
             }
         </CarrouselContainer>
     )

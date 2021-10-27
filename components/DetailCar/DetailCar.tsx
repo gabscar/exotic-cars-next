@@ -24,16 +24,19 @@ const DetailCar: React.FC <Detail>= ({props})=>{
     const [mainIsLoaded, setMainIsLoaded] = useState(false);
     const [logoIsLoaded, setLogoIsLoaded] = useState(false);
     const [currentData,setCurrentData]= useState<options[]>(options.slice(0,3))
-    const [currentIndex,setCurrentIndex] = useState(0);
-
-    const [width,setWidth] = useState(1720)
-    const router = useRouter()
+    const [currentIndex,setCurrentIndex] = useState( options.length<3?0:1);
+    
+    const [width,setWidth] = useState(1720);
+    const router = useRouter();
+    
+   
     useEffect(() => {
         ChangeIndex();
-        if(options.length <3)
+        if(options.length < 3){
             setCurrentIndex(0)
-        else
+        }else{
             setCurrentIndex(1);
+        }
     }, [currentIndex]);
 
     useEffect(()=>{
@@ -107,7 +110,7 @@ const DetailCar: React.FC <Detail>= ({props})=>{
                                 <LoadingDiv/>
                         )}
                         <Image src = {currentData[currentIndex].image} width={783} height={408} 
-                        onLoadingComplete={()=>setMainIsLoaded(true)}
+                            onLoadingComplete={()=>setMainIsLoaded(true)}
                         />
                         
                         <NumberColorContainer>

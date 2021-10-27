@@ -41,6 +41,7 @@ export const CarrouselContainer = styled.div`
         color: #000;
         cursor: pointer;
         user-select: none;
+        z-index: 10;
     }   
     .arrow-left {
         height: 50px;
@@ -48,34 +49,89 @@ export const CarrouselContainer = styled.div`
         color: #000;
         cursor: pointer;
         user-select: none;
+        z-index: 10;
     }   
+    @media (max-width:1400px){
+        .arrow-left {
+            height: 40px;
+            width: 40px;
+            margin-right: 6%;
 
-    @media (max-width:600px){
+        }
+        .arrow-right{
+            margin-left: 6%;
+            height: 40px;
+            width: 40px;
+        }
+    }
+    @media (max-width:1000px){
+        .arrow-left {
+            height: 35px;
+            width: 35px;
+            margin-right: 4%;
+
+        }
+        .arrow-right{
+            margin-left: 4%;
+            height: 35px;
+            width: 35px;
+        }
+    }
+    @media (max-width:900px){
+        .arrow-left {
+            height: 28px;
+            width: 28px;
+            margin-right: 3%;
+
+        }
+        .arrow-right{
+            margin-left: 3%;
+            height: 28px;
+            width: 28px;
+        }
+    }
+
+    @media (max-width:700px){
         max-width: 100vw;
+        justify-content: center;
         .arrow-left {
             position: absolute;
             height: 30px;
             width: 30px;
-            left: 20%;
+            left: 28%;
+            top:40%;
             
             
         }
         .arrow-right{
             position: absolute;
+            top:40%;
             height: 30px;
             width: 30px;
-            right: 18%;
+            right: 28%;
         }
     }
+    @media (max-width:630px){
+        .arrow-left {
+            position: absolute;
+            left: 26%;
+        }
+        .arrow-right{
+            position: absolute;
+            right: 26%;
+        }
+    }
+
 `
 
 export const CarrouselActiveItem = styled.div`
     opacity: 1;
     user-select: none;
     height: 100%;  
-    position: absolute;
+    
     margin-top: 20px;
     margin-left: 20px;
+    margin-right: 20px;
     div{
         display: flex;
         background: rgb(208,201,249);
@@ -92,14 +148,30 @@ export const CarrouselActiveItem = styled.div`
             animation: ${ css`0.5s ${SlideOutRigthAnimation}`};
             
     }
+    @media (max-width:1400px){
+        div{
+            width: 300px;
+        }
+    }
+    @media (max-width:1000px){
+        div{
+            width: 280px;
+        }
+    }
+    @media (max-width:900px){
+        div{
+            width: 250px;
+        }
+    }
     @media (max-width:700px){
         
         div{
-            width: 250px;
-            
+            width: 220px;
+            justify-self: center;
             
         }
     }
+    
 
 
 `
@@ -111,7 +183,7 @@ export const CarrouselInactiveItem = styled.div`
     align-items: center;
     user-select: none;
     
-    margin: 0 200px 0 220px;
+   
     div{
         display: flex;
         justify-content: center;
@@ -123,13 +195,33 @@ export const CarrouselInactiveItem = styled.div`
         justify-self: center;
         transform: translateX(3%);
     }
-    @media (max-width:700px){
+    @media (max-width:1400px){
         div{
-            width: 200px;
-            margin: 0 0 0 0;
-            
+            width: 210px;
         }
     }
+    @media (max-width:1000px){
+        div{
+            width: 190px;
+        }
+    }
+    @media (max-width:900px){
+        div{
+            width: 160px;
+        }
+    }
+    @media (max-width:700px){
+        div{
+            
+            width: 130px;
+            margin: 0 20px 0 20px;
+            
+        }
+        
+    }
+    
+    
+    
 `
 
 

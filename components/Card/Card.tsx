@@ -1,11 +1,11 @@
 import React,{useState} from "react";
 import { CardDiv, CarImage, CarImageContainer, CarModel, CarTitle, TitleContainer, ValueContainer } from "./styles";
 import Link from 'next/link'
-import {Cars} from '../../Utils/interfaces'
-
+import {CarDetail} from '../../Utils/interfaces'
+import Image from 'next/image'
 
 interface card{
-    data: Cars
+    data: CarDetail
 }
 
 
@@ -25,7 +25,7 @@ const Card : React.FC<card> = ({data})=>{
                     <CarModel>{model}</CarModel>
                 </TitleContainer>
                 <CarImageContainer>
-                    <CarImage src = {image_card} />
+                    <Image src = {image_card} width={300} height={110}/>
                 </CarImageContainer>
                 <ValueContainer>
                     <h2>$</h2>
