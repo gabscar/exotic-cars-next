@@ -25,6 +25,7 @@ const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
                         return(
                             <CarrouselActiveItem
                                 key={index}
+                                leng = {currentData.length}
                             >
                                 <div  style={{cursor:'pointer'}}onClick={index>currentIndex?()=>nextSlide(currentIndex+1)
                                     :index<currentIndex?()=>prevSlide(currentIndex-1):()=>prevSlide(currentIndex)}>
@@ -38,6 +39,7 @@ const Carrousel: React.FC<carrousel>=(props:carrousel)=>{
                         return(
                             <CarrouselInactiveItem
                                 key={index}
+                                leng = {currentData.length}
                             >
                                 <div  style={{cursor:'pointer'}}onClick={index>currentIndex?()=>nextSlide(currentIndex+1)
                                     :index<currentIndex?()=>prevSlide(currentIndex-1):()=>prevSlide(currentIndex)}>

@@ -122,10 +122,26 @@ export const CarrouselContainer = styled.div<{length:number}>`
             right: ${({length})=>(length>2?'26%':'6%')};
         }
     }
+    @media (max-width:400px){
+        .arrow-left {
+            height: 23px;
+            width: 23px;
+            left: ${({length})=>(length>2?'22%':'6%')};
+            top: ${({length})=>(length>2?'50%':'44%')};
+        }
+        .arrow-right{
+            height: 23px;
+            width: 23px;
+            right: ${({length})=>(length>2?'22%':'1%')};
+            top: ${({length})=>(length>2?'50%':'44%')};
+            
+        }
+       
+    }
 
 `
 
-export const CarrouselActiveItem = styled.div`
+export const CarrouselActiveItem = styled.div<{leng:number}>`
     opacity: 1;
     user-select: none;
     height: 200px;  
@@ -144,7 +160,7 @@ export const CarrouselActiveItem = styled.div`
     }
     div .img{
             transform: translateY(10%);
-            z-index: 1;
+            z-index: 10;
             transition-duration: 1s;
             animation: ${ css`0.5s ${SlideOutRigthAnimation}`};
             
@@ -172,11 +188,21 @@ export const CarrouselActiveItem = styled.div`
             
         }
     }
+    @media (max-width:400px){
+        div{
+            width: ${({leng})=>(leng>2?'140px':'160px')};
+            margin-left: ${({leng})=>(leng>2?'0px':'25%')};
+           
+            margin-right: 0px;
+            transform: translateY(${({leng})=>(leng>2?'10%':'15%')});
+        }
+       
+    }
     
 
 
 `
-export const CarrouselInactiveItem = styled.div`
+export const CarrouselInactiveItem = styled.div<{leng:number}>`
 
 
     display: flex;
@@ -219,6 +245,13 @@ export const CarrouselInactiveItem = styled.div`
             
         }
         
+    }
+    @media (max-width:400px){
+        div{
+            width: ${({leng})=>(leng>2?'80px':'100px')};
+            margin-left: ${({leng})=>(leng>2?'0px':'2%')};
+            
+        }
     }
     
     

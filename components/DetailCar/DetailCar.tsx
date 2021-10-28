@@ -47,7 +47,9 @@ const DetailCar: React.FC <Detail>= ({props})=>{
           window.addEventListener('resize', handleResize);
           return () => window.removeEventListener('resize', handleResize);
     },[width])  
-    console.log(width)
+    useEffect(()=>{
+        setWidth(window.innerWidth)
+    },[])
     
     function handleSelectActionModal(index: number) {
         if (index >currentIndex) {
@@ -123,9 +125,10 @@ const DetailCar: React.FC <Detail>= ({props})=>{
                 <BookContainer>
                     <ButtonBook>Book Now <FiArrowRight className = "arrowRight" size={15}/> 
                     </ButtonBook>
-                    
+                    {width>700?null: <BackButtonAux onClick = {goBackHandler}>
+                        <FiArrowLeft className = "arrow" size = {15}/>Back to catalog    
+                    </BackButtonAux>}
                 </BookContainer>
-                {}
                 <BottomContainer>
                     <Carrousel prevSlide={handleSelectActionModal} 
                             nextSlide={handleSelectActionModal} 

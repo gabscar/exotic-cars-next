@@ -226,6 +226,13 @@ export const NumberColorContainer = styled.div`
         
         right: 0;
     }
+    @media (max-width:400px) and (min-height:600px){
+        top:50%;
+    }
+    @media (max-width:400px) and (min-height:700px){
+        top:40%;
+    }
+   
   
 
 `

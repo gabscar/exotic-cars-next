@@ -10,6 +10,8 @@ export default createGlobalStyle`
       box-sizing: border-box;
       max-width: 100vw;
       
+      
+      
     
     }
     #root {
@@ -22,7 +24,7 @@ export default createGlobalStyle`
      
       font-family: 'Segoe UI';
       width: 100vw;
-      
+      overflow-x: hidden;
     }
     a {
         text-decoration: none;
