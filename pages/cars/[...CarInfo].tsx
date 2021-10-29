@@ -47,7 +47,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const allVeicles = await getAllCars();
     const paths = allVeicles.map((item:CarDetail)=>{
         
-        let replacedPath =  item.model.split(' ').join('-')  
+        let replacedPath =  item.model.replace(/ /g, '-');
         
         return ({params:
             {CarInfo:[

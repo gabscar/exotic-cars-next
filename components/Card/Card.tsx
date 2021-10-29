@@ -14,7 +14,8 @@ const Card : React.FC<card> = ({data})=>{
    
     const {brand,price,image_card,model,id} =data;
     let modelAux =model;
-   let modelPath = modelAux.split(' ').join('-');
+   let modelPath = modelAux.replace(/ /g, '-');
+   
    console.log(model)
     const linkPath = `/cars/${id}/${brand}/${modelPath}`;
     return(
